@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SRM AP Student Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f5fa;
+            color: #1d2b45;
+        }
+
+        header {
+            background: #102449;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login {
+            background: white;
+            width: 320px;
+            margin: 60px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2858c5;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .login button {
+            width: 100%;
+        }
+
+        #dashboard {
+            display: none;
+            padding: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #0001;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SRM AP Student Portal</h1>
+    <p>Student and Academic Administration</p>
+</header>
+
+<div class="login" id="login">
+    <h2>Admin Login</h2>
+
+    <input id="adminId" placeholder="Admin ID">
+
+    <input id="adminPassword"
+           type="password"
+           placeholder="Password">
+
+    <button onclick="loginAdmin()">Login</button>
+
+    <p id="message"></p>
+</div>
+
+<div id="dashboard">
+
+    <h2>Welcome, Administrator</h2>
+
+    <button onclick="logout()">Logout</button>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Students</h3>
+            <p>Manage student details</p>
+        </div>
+
+        <div class="card">
+            <h3>Attendance</h3>
+            <p>View attendance records</p>
+        </div>
+
+        <div class="card">
+            <h3>Results</h3>
+            <p>Manage marks and CGPA</p>
+        </div>
+
+        <div class="card">
+            <h3>Fees</h3>
+            <p>Manage fee details</p>
+        </div>
+
+        <div class="card">
+            <h3>Courses</h3>
+            <p>Manage course registration</p>
+        </div>
+
+        <div class="card">
+            <h3>Timetable</h3>
+            <p>View class schedules</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function loginAdmin() {
+
+        let id = document.getElementById("adminId").value;
+        let password =
+            document.getElementById("adminPassword").value;
+
+        if (id === "admin" && password === "admin123") {
+
+            document.getElementById("login").style.display = "none";
+
+            document.getElementById("dashboard").style.display = "block";
+
+        } else {
+
+            document.getElementById("message").innerText =
+                "Incorrect Admin ID or Password";
+
+        }
+    }
+
+    function logout() {
+
+        document.getElementById("dashboard").style.display = "none";
+
+        document.getElementById("login").style.display = "block";
+
+    }
+</script>
+
+</body>
+</html>
